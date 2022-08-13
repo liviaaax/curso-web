@@ -20,3 +20,31 @@ themeToggler.addEventListener("click", () => {
     themeToggler.querySelector("span:nth-child(2)").classList.toggle("active");
 });
 
+// Preencher pedidos na tabela
+let table = document.querySelector("table tbody");
+Orders.forEach((order) => {
+    let linha = document.createElement("tr");
+    console.logo(order);
+    let conteudo =
+    "<td>" +
+    order.productName +
+    "<td>" +
+    "<td>" +
+    order.productNumber +
+    "<td>" +
+    ("<td class=" +
+    (order.shipping == "Negado"
+    ? "danger"
+    : order.shipping == "Pendente"
+    ? "warning"
+    : "primary") +
+    ">" +
+    order.shipping +
+    "</td>") +
+    '<td class="primary">' +
+    "Detalhes" +
+    "</td>";
+
+    linha.innerHTML = conteudo;
+    table.appendChild(linha);
+});
